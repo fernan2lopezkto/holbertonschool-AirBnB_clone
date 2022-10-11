@@ -11,17 +11,15 @@ class BaseModel:
     class base mode
     """
 
-    id = str(uuid.uuid4())
-
-    @property()
-    def created_at(self):
-        created_at = datetime.date.fromtimestamp(time.time());
-        return created_at
-
-    updated_at = datetime.date.fromtimestamp(time.time());
+    def __init__(self):
+        """ init functions """
+    
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.date.fromtimestamp(time.time());
+        self.updated_at = datetime.date.fromtimestamp(time.time());
 
     def __str__(self):
-        a = f"[BaseModel] ({self.id}) {self.__dict__} "
+        a = f"[self.__class__.__name__] ({self.id}) {self.__dict__} "
         return a
 
     def save(self):
