@@ -37,5 +37,6 @@ class BaseModel:
                 jojo[key] = a
             else:
                 jojo[key] = self_atr_ibuts[key]
+            jojo["__class__"] = self.__class__.__name__
 
         return jojo
