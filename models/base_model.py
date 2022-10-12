@@ -23,6 +23,9 @@ class BaseModel:
         else:
             for key in kwargs:
                 if key != "__class__":
+                    if key == "created_at" or key == "updated_at":
+                        m = kwargs[key]
+                        datetime.datetime.strptime(m, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, kwargs[key])
 
     def __str__(self):
