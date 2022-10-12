@@ -22,7 +22,7 @@ class BaseModel:
             self.updated_at = datetime.datetime.now();
         else:
             for key in kwargs:
-                if key is not "__clas__"
+                if key != "__class__":
                     setattr(self, key, kwargs[key])
 
     def __str__(self):
