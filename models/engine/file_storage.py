@@ -30,7 +30,7 @@ class FileStorage:
         j_string = json.dumps(self.__objects)
 
         with open(self.__file_path, "w") as f:
-            return f.write(j_string)
+            f.write(j_string)
 
     def reload(self):
         """
