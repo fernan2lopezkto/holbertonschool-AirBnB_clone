@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ storage module """
 import os
+import json
 
 
 class FileStorage:
@@ -18,14 +19,15 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[obj.__class__.__name__] = obj.id
+        ki = f"{obj.__class__.__name__}.{obj.id}"
+        self.__objects[ki] = obj
 
     def save(self):
         """
         serializes __objects to
         the JSON file (path: __file_path)
         """
-        with open(self.__file_path, "w+") as f:
+        with open(self.__file_path, "w") as f:
             f.write(json.dumps(self.__objects))
 
     def reload(self):
