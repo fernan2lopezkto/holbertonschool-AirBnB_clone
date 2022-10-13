@@ -23,23 +23,23 @@ class FileStorage:
         self.__objects[ki] = obj
 
     def save(self):
-
+        """serealize
+        """
         jojojo = []
         for key in self.__objects:
-            jojojo.append(self.__objects[key].BaseModel.to_dict())
-
+            a = self.__objects[key]
+            b = a.to_dict()
+            jojojo.append(b)
+            print("-----------")
         j_string = json.dumps(jojojo)
 
         with open(self.__file_path, "w") as f:
             f.write(j_string)
 
     def reload(self):
-        """
-        deserializes the JSON file to __objects
-        (only if the JSON file (__file_path) exists ;
-        otherwise, do nothing. If the file doesn’t
-        exist, no exception should be raised)
+        """deserializes
         """
         if os.path.exists(self.__file_path):
+
             with open(self.__file_path, "r") as f:
                 self.__objects = json.load(f)
