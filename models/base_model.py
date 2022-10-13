@@ -10,13 +10,24 @@ class BaseModel:
     class base mode
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ init functions """
             
-        self.id = str(uuid.uuid4())
+        if len(kwargs) == 0:
+            
+            self.id = str(uuid.uuid4())
 
-        self.created_at = datetime.datetime.now();
-        self.updated_at = datetime.datetime.now();
+            self.created_at = datetime.datetime.now();
+            self.updated_at = datetime.datetime.now();
+
+            storage.new
+        else:
+            for key in kwargs:
+                if key != "__class__":
+                    if key == "created_at" or key == "updated_at":
+                        m = kwargs[key]
+                        datetime.datetime.strptime(m, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, key, kwargs[key])
 
     def __str__(self):
         a = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__} "
