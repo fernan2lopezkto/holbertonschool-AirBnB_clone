@@ -20,6 +20,8 @@ class BaseModel:
 
             self.created_at = datetime.datetime.now();
             self.updated_at = datetime.datetime.now();
+
+            storage.new
         else:
             for key in kwargs:
                 if key != "__class__":

@@ -11,7 +11,7 @@ class FileStorage:
     """
 
     def __init__(self):
-        self.__file_path = "storage.json"
+        self.__file_path = "file.json"
         self.__objects = {}
 
 
@@ -27,8 +27,10 @@ class FileStorage:
         serializes __objects to
         the JSON file (path: __file_path)
         """
+        j_string = json.dumps(self.__objects)
+
         with open(self.__file_path, "w") as f:
-            f.write(json.dumps(self.__objects))
+            return f.write(j_string)
 
     def reload(self):
         """
