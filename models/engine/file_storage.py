@@ -2,7 +2,7 @@
 """ storage module """
 import os
 import json
-from models.base_model import BaseModel
+
 
 
 
@@ -28,9 +28,11 @@ class FileStorage:
         jojojo = []
         for key in self.__objects:
             a = self.__objects[key]
-            b = a.to_dict()
+
+            b = to_dict_storage(a)
+
             jojojo.append(b)
-            print("-----------")
+
         j_string = json.dumps(jojojo)
 
         with open(self.__file_path, "w") as f:
@@ -43,3 +45,17 @@ class FileStorage:
 
             with open(self.__file_path, "r") as f:
                 self.__objects = json.load(f)
+
+def to_dict_storage(ki_obj):
+    ki_atr_ibuts = ki_obj.__dict__
+    jojojo = {}
+
+    for key in ki_atr_ibuts.keys():
+        if key == "created_at" or key == "updated_at":
+            a = ki_atr_ibuts[key].isoformat()
+            jojojo[key] = a
+        else:
+            jojojo[key] = ki_atr_ibuts[key]
+        jojojo["__class__"] = ki_obj.__class__.__name__
+
+    return jojojo
