@@ -28,7 +28,14 @@ class Test_base_model(unittest.TestCase):
         bm = BaseModel()
         self.assertTrue(hasattr(bm, "created_at"))
 
-    def test__str__(self):
+    def test_updated_at(self):
+        bm = BaseModel()
+        time.sleep(1)
+        bm.save()
+        self.assertTrue(hasattr(bm, "updated_at"))
+        self.assertTrue(bm.created_at != bm.updated_at)
+
+    def test___str__(self):
         bm = BaseModel()
         self.assertEqual(type(bm.__str__()), str)
 
