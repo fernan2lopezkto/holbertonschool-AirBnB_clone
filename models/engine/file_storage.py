@@ -41,10 +41,29 @@ class FileStorage:
     def reload(self):
         """deserializes
         """
+        print("hola")
+
         if os.path.exists(self.__file_path):
 
+            print("the file exist")
             with open(self.__file_path, "r") as f:
-                self.__objects = json.load(f)
+
+                print("open it")
+
+                string_list_obgets = json.load(f)
+
+                print(type(string_list_obgets))
+                print(type(string_list_obgets[0]))
+                print(string_list_obgets)
+
+                for itm in string_list_obgets:
+                    print(itm)
+                    print(type(itm))
+                    a = itm['id']
+                    print(a)
+                    print()
+                    kisss = f"{itm['__class__']}.{itm['id']}"
+                    self.__objects[kisss] = itm
 
 def to_dict_storage(ki_obj):
     ki_atr_ibuts = ki_obj.__dict__
@@ -59,3 +78,4 @@ def to_dict_storage(ki_obj):
         jojojo["__class__"] = ki_obj.__class__.__name__
 
     return jojojo
+ 
