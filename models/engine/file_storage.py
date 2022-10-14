@@ -36,11 +36,10 @@ class FileStorage:
             f.write(j_string)
 
     def reload(self):
-        """deserializes
-        """
-
+        """deserializes the JSON file to __objects"""
         if os.path.exists(self.__file_path):
-            with open(self.__file_path, "r") as f:
-                dict_obgets_from_json = json.load(f)
-                for itm in dict_obgets_from_json:
-                    self.__objects[itm] = BaseModel(itm)
+            with open(self.__file_path, mode='r') as fileJr:
+                loaded_dictionary = json.loads(fileJr.read())
+            for values in loaded_dictionary.values():
+                execsClass = values["__class__"]
+                self.new(eval(execsClass)(**values))
