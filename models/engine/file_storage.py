@@ -42,25 +42,17 @@ class FileStorage:
     def reload(self):
         """deserializes
         """
-        print("hola")
 
         if os.path.exists(self.__file_path):
-
-            print("the file exist")
+            """open fil """
             with open(self.__file_path, "r") as f:
-
-                print("open it")
-
+                """write file as r mode"""
                 dict_obgets_from_json = json.load(f)
-
-                print(type(dict_obgets_from_json))
-                print(dict_obgets_from_json)
-
+                """make a dictionary from json file (deserealized)"""
                 for itm in dict_obgets_from_json:
-                    print(itm)
-                    print(type(itm))
-
-                    print()
-
+                    """itm is a dict in to the dict_obgets_from_json"""
                     from models.base_model import BaseModel
+                    """import to use BaseModel"""
                     self.__objects[itm] = BaseModel(itm)
+                    """set in __obgets any itm BaseModel instances
+                    """
