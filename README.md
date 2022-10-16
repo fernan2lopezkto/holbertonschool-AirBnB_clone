@@ -45,3 +45,54 @@ The console will be a tool to validate this storage engine
 </p>
 
 </co>
+
+
+<h1>Project general description</h1>
+
+### Contents
+- `console.py`: the core of the `cmd` line interpreter
+- ***models***
+  - `base_model.py`: Defines all common attributes/methods for other classes. It is initialized with ***kwargs* and sets the attributes *id*, *created_at* and *updated_at* with `datetime` and converted in ISO format.\
+    *save()*: saves changes and updates the updated time.\
+    *to_dict()*: returns a key/value dictionary of __dict__.
+  - `Other classes`: (User, State, City, Amenity, Place, Review).
+  - ***engine***
+    - `file_storage.py`: Serializes instances to a JSON file and deserializes JSON file to instances.\
+		*all()*: returns the dictionary `__objects`.\
+    *new()*: sets in `__objects` the obj with key "<obj class name>.id".\
+		*save()*: serializes `__objects` to the JSON file.\
+		*reload()*: deserializes the JSON file to `__objects`.\
+        
+
+## Command Interpreter
+prompt($): (hbnb)
+
+### How to use it
+- Type `./console.py` to launch the command interpreter.
+- **create** - Creates a new instance of the class.\
+	Usage: `create class_name`
+
+		(hbnb) create BaseModel
+			
+- **show** - Prints an instance based on the class name and id.\
+	Usage: `show class_name id`
+
+		(hbnb) show BaseModel 1234
+
+- **destroy** - Deletes an instance based on the class name and id.\
+	Usage: `destroy class_name id`
+		
+		(hbnb) destroy BaseModel 1234
+
+- **all** - Prints all instances based or not on the class name.\
+	Usage: `all class_name` | `all`
+	
+		(hbnb) all BaseModel
+		(hbnb) all
+
+- **update** - Updates an instance based on the class name and id by adding or updating attribute.\
+	Usage: `update class_name id attribute_name "attribute_value"`
+	
+		(hbnb) update BaseModel 1234 email "aibnb@mail.com"
+
+
