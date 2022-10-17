@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """update instance atribute"""
         s = args.split(" ")
-        if len(s) == 0:
+        if not args:
             print("** class name missing **")
         elif (s[0] != "BaseModel"):
             print("** class doesn't exist **")
