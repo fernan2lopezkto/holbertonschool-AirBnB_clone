@@ -79,12 +79,13 @@ class HBNBCommand(cmd.Cmd):
         """prints all string representation"""
         l = []
         dic = storage.all()
-        if args is None:
+        if args[0] != "BaseModel":
+            print("** class doesn't exist **")
+        else:
             for k, v in dic.items():
                 l.append(dic[k])
             print(l)
-        if (m[0] != "BaseModel"):
-            print("** class doesn't exist **")
+        
 
     def do_update(self, args):
         """update instance atribute"""
