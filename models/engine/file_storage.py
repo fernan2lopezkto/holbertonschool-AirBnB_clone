@@ -25,12 +25,9 @@ class FileStorage:
         self.__objects[ki] = obj
 
     def save(self):
-        """save method"""
         """serealize
         """
         dic_to_json = {}
-        """create a dictionary to serializate"""
-
         for key, value in self.__objects.items():
             dic_to_json[key] = value.to_dict()
         j_string = json.dumps(dic_to_json)

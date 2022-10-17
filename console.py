@@ -10,6 +10,7 @@ class HBNBCommand(cmd.Cmd):
     """class HBNB interpreter"""
 
     prompt = "(hbnb)"
+
     """task 6
     """
 
@@ -84,6 +85,31 @@ class HBNBCommand(cmd.Cmd):
             print(l)
         if (m[0] != "BaseModel"):
             print("** class doesn't exist **")
+
+    def do_update(self, args):
+        """update instance atribute"""
+        s = args.split(" ")
+        if len(s) == 0:
+            print("** class name missing **")
+        elif (s[0] != "BaseModel"):
+            print("** class doesn't exist **")
+        elif len(s) == 1:
+            print("** instance id missing **")
+        elif len(s) == 2:
+            print("** attribute name missing **")
+        else:
+            key = s[0] + "." + s[1]
+            dic = storage.all()
+            if dic[key]:
+                inst = dic[key]
+                if hasattr(inst, s[2]):
+                    setattr(inst, s[2], s[3])
+                    storage.save()
+                else:
+                    print("** value missing **")
+
+            else:
+                print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
