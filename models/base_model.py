@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Base Model"""
+
 import datetime
 import models
 from uuid import uuid4
-
 
 
 class BaseModel():
@@ -24,15 +24,17 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
+        """rewrite __str__"""
         a = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__} "
         return a
 
     def save(self):
+        """save method"""
         self.updated_at = datetime.datetime.now();
         models.storage.save()
 
     def to_dict(self):
-
+        """to_dict method"""
         self_atr_ibuts = self.__dict__
         jojo = {}
 
