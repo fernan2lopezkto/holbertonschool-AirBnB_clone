@@ -72,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
             dic = storage.all()
         try:
             del dic[key]
-            storage.save
+            storage.save()
         except Exception:
             print("** no instance found **")
 
