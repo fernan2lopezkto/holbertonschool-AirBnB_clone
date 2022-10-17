@@ -85,11 +85,11 @@ class HBNBCommand(cmd.Cmd):
             print(l)
         elif args == "BaseModel":
             for k, v in dic.items():
-                l.append(dic[k])
+                if v.__class__.__name__ == "BaseModel":
+                    l.append(dic[k])
             print(l)
         else:
             print("** class doesn't exist **")            
-        
 
     def do_update(self, args):
         """update instance atribute"""
