@@ -101,21 +101,19 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(s) == 1:
             print("** instance id missing **")
-        elif len(s) == 2:
-            print("** attribute name missing **")
-        else:
+        elif len (s) > 1:
             key = s[0] + "." + s[1]
             dic = storage.all()
-            if dic[key]:
-                inst = dic[key]
-                if hasattr(inst, s[2]):
-                    setattr(inst, s[2], s[3])
-                    storage.save()
-                else:
-                    print("** value missing **")
-
-            else:
-                print("** no instance found **")
+            for k, v in dic.items():
+                if value.id == s[1]:
+                    if hasattr(value, s[2]):
+                        setattr(inst, s[2], s[3])
+                        storage.save()
+                    else:
+                        print(" novalor")
+        else:
+            print("otra cosa")
+            
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
