@@ -14,7 +14,8 @@ class BaseModel():
         if kwargs:
             for element, value in kwargs.items():
                 if element in ("created_at", "updated_at"):
-                    value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    tim = "%Y-%m-%dT%H:%M:%S.%f"
+                    value = datetime.datetime.strptime(value, tim)
                 if element != "__class__":
                     setattr(self, element, value)
         else:
@@ -29,7 +30,8 @@ class BaseModel():
         return a
 
     def save(self):
-        """save method"""
+        """save method
+        """
         self.updated_at = datetime.datetime.now();
         models.storage.save()
 
