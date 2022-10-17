@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         x = args.split(" ")
         if len(x) == 0:
             print("** class name missing **")
-        elif (x[0] =! "BaseModel"):
+        elif (x[0] != "BaseModel"):
             print("** class doesn't exist **")
         elif len(x) == 1:
             print("** instance id missing **")
@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
         s = args.split(" ")
         if len(s) == 0:
             print("** class name missing **")
-        elif (s[0] =! "BaseModel"):
+        elif (s[0] != "BaseModel"):
             print("** class doesn't exist **")
         elif len(s) == 1:
             print("** instance id missing **")
@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
         except Exception:
             print("** no instance found **")
 
-    def do_all(self, args)
+    def do_all(self, args):
         """prints all string representation"""
         l = []
         dic = storage.all()
@@ -82,5 +82,8 @@ class HBNBCommand(cmd.Cmd):
             for k, v in dic.items():
                 l.append(dic[k])
             print(l)
-        if (m[0] =! "BaseModel"):
+        if (m[0] != "BaseModel"):
             print("** class doesn't exist **")
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
