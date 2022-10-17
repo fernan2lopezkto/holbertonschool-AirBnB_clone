@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         """destroy obj"""
         s = args.split(" ")
-        if len(s) == 0:
+        if not args:
             print("** class name missing **")
         elif (s[0] != "BaseModel"):
             print("** class doesn't exist **")
@@ -70,11 +70,11 @@ class HBNBCommand(cmd.Cmd):
         else: 
             key = s[0] + "." + s[1]
             dic = storage.all()
-        try:
-            del dic[key]
-            storage.save()
-        except Exception:
-            print("** no instance found **")
+            try:
+                del dic[key]
+                storage.save()
+            except Exception:
+                print("** no instance found **")
 
     def do_all(self, args):
         """prints all string representation"""
