@@ -33,15 +33,54 @@ class HBNBCommand(cmd.Cmd):
         if base_name:
             if base_name == "BaseModel":
                 created = BaseModel()
+                created.save()
                 print(created.id)
             else:
                 print("** class doesn't exist **")
         else:
             print("** class name missing **")
 
-    def do_show(self,):
-        print("helo")
+    def do_show(self, args):
+        """show obj"""
+        x = args.split(" ")
+        if len(x) == 0:
+            print("** class name missing **")
+        elif (x[0] =! "BaseModel"):
+            print("** class doesn't exist **")
+        elif len(x) == 1:
+            print("** instance id missing **")
+        else:
+            key = x[0] + "." + x[1]
+            dic = storage.all()
+            try:
+                print(dic[key])
+            except Exception:
+                print("** no instance found **")
 
+    def do_destroy(self, args):
+        """destroy obj"""
+        s = args.split(" ")
+        if len(s) == 0:
+            print("** class name missing **")
+        elif (s[0] =! "BaseModel"):
+            print("** class doesn't exist **")
+        elif len(s) == 1:
+            print("** instance id missing **")
+        else: 
+            key = x[0] + "." + x[1]
+            dic = storage.all()
+        try:
+            print(dic[key])
+        except Exception:
+            print("** no instance found **")
 
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    def do_all(self, args)
+        """prints all string representation"""
+        l = []
+        dic = storage.all()
+        if args is None:
+            for k, v in dic.items():
+                l.append(dic[k])
+            print(l)
+        if (m[0] =! "BaseModel"):
+            print("** class doesn't exist **")
