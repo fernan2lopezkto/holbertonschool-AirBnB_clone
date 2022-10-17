@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(s) == 1:
             print("** instance id missing **")
         else: 
-            key = x[0] + "." + x[1]
+            key = s[0] + "." + s[1]
             dic = storage.all()
         try:
             print(dic[key])

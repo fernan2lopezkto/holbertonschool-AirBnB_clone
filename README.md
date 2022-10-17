@@ -10,8 +10,8 @@ ZONAMERICA<br>
 Montevideo, Uruguay<br>
 </h4>
 <br>
-<h2>AirBnB clone general description</h2>
-<p>The goal of the project is to deploy on your server a simple copy of the AirBnB website.</p><br>
+<h2>AirBnB clone, general description</h2>
+<p>The goal of the project is to deploy on our server a simple copy of the AirBnB website.</p><br>
 <h3>About Airbnb</h3>
 <p>Airbnb was born in 2007, when two of its founders welcomed three guests to their San Francisco apartment. It has grown a lot since then and currently has 4 million hosts who have shared their accommodations with more than 1 billion travelers in almost every country in the world. Every day, hosts offer exceptional stays and unique experiences that allow travelers to discover the world in a more authentic and intimate way.</p>
 <br>
