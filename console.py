@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """show obj"""
         x = args.split(" ")
-        if len(x) == 0:
+        if not args:
             print("** class name missing **")
         elif (x[0] != "BaseModel"):
             print("** class doesn't exist **")
