@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(s) == 1:
             print("** instance id missing **")
-        else: 
+        else:
             key = s[0] + "." + s[1]
             dic = storage.all()
             try:
@@ -90,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
                     l.append(dic[k].to_dict())
             print(l)
         else:
-            print("** class doesn't exist **")            
+            print("** class doesn't exist **")
 
     def do_update(self, args):
         """update instance atribute"""
