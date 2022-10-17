@@ -71,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
             key = s[0] + "." + s[1]
             dic = storage.all()
         try:
-            pop(dic[key])
+            dic.pop(key)
         except Exception:
             print("** no instance found **")
 
