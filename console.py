@@ -32,8 +32,9 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, base_name):
         """create Base MOdel instance"""
         if base_name:
-            if base_name == "BaseModel":
-                created = BaseModel()
+            if base_name in storage.classess():
+
+                created = storage.classess()[base_name]()
                 created.save()
                 print(created.id)
             else:
