@@ -105,14 +105,16 @@ class HBNBCommand(cmd.Cmd):
             key = s[0] + "." + s[1]
             dic = storage.all()
             for k, v in dic.items():
-                if value.id == s[1]:
-                    if hasattr(value, s[2]):
+                if v.id == s[1]:
+                    if hasattr(v, s[2]):
+                        if not s[3]:
+                            print("** value missing **")
                         setattr(inst, s[2], s[3])
                         storage.save()
                     else:
-                        print(" novalor")
+                        print("** attribute name missing **")
         else:
-            print("otra cosa")
+            print("** instance id missing **")
             
 
 if __name__ == '__main__':
