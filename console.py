@@ -81,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
         dic = storage.all()
         if not args:
             for k, v in dic.items():
-                l.append(dic[k])
+                l.append(dic[k].to_dic())
             print(l)
         elif args == "BaseModel":
             for k, v in dic.items():
