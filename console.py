@@ -109,11 +109,9 @@ class HBNBCommand(cmd.Cmd):
             key = s[0] + "." + s[1]
             dic = storage.all()
             try:
-                dic[key]
                 inst = dic[key]
-                if hasattr(inst, s[2]):
-                    setattr(inst, s[2], s[3])
-                    storage.save()
+                setattr(inst, s[2], s[3])
+                storage.save()
             except Exception:
                 print("** no instance found **")
                 return
