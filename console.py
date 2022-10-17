@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         elif args == "BaseModel":
             for k, v in dic.items():
                 if v.__class__.__name__ == "BaseModel":
-                    l.append(dic[k])
+                    l.append(dic[k].to_dict())
             print(l)
         else:
             print("** class doesn't exist **")            
