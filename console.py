@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
             del dic[key]
             storage.save()
         except Exception:
-            print("** class doesn't exist **")
+            print("** instance id missing **")
 
     def do_all(self, args):
         """prints all string representation"""
