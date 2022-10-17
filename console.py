@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         elif (s[0] != "BaseModel"):
             print("** class doesn't exist **")
         elif len(s) == 1:
-            print("** instance id missing **")
+            print("** no instance found **")
         else: 
             key = s[0] + "." + s[1]
             dic = storage.all()
@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
             del dic[key]
             storage.save()
         except Exception:
-            print("** no instance found **")
+            print("** instance id missing **")
 
     def do_all(self, args):
         """prints all string representation"""
