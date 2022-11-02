@@ -63,9 +63,10 @@
     margin-left: 16%;
 }
 
-.popover h3 {
+.popover h2 {
     margin-left: 9%;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .filters ul {
