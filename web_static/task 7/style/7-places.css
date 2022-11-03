@@ -4,43 +4,23 @@
 }
 
 .places article {
-
-    display: block;
-
     width: 390px;
     padding: 20px;
     margin: 20px;
     border: #FF5A5F solid 1px;
     border-radius: 4px;
-    
+    flex-basis: 390px;
 }
 
 .places article h2 {
-    width: 100%;
-    float:right;
     font-size: 30px;
     text-align: center;
     margin-top: 0px;
-    
-    justify-content: center;
-    align-content: center;
-
 }
 
 .places div {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-.price_by_night {
-
-    float: right;
-    color: #FF5A5F;
-    border: #FF5A5F 4px solid;
-    border-radius: 50px;
-    min-width: 60px;
-    height: 60px;
-    font-size: 30px;
 }
